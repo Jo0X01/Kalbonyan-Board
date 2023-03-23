@@ -1,0 +1,74 @@
+
+.trash-icon {
+    cursor: pointer;
+    background-color: var(--trash-icon-bg-color);
+    position: relative;
+    display: block;
+    transform: scale(1);
+    width: 13px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    box-shadow: 0 0 0 2px, inset -2px 0 0, inset 2px 0 0;
+}
+
+.trash-icon::after,
+.trash-icon::before {
+    background-color: var(--trash-icon-bg-color);
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute
+}
+
+.trash-icon::after {
+    border-radius: 3px;
+    width: 17px;
+    height: 2px;
+    top: -5px;
+    left: -4px;
+}
+
+.trash-icon::before {
+    width: 10px;
+    height: 5px;
+    border: 2px solid;
+    border-bottom: transparent;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    top: -9px;
+    left: -1px;
+}
+
+
+.edit-icon {
+    width: 5px;
+    height: 17px;
+    background-color: var(--edit-icon-bg-color);
+    position: relative;
+    cursor: pointer;
+    transform: rotate(40deg);
+    margin-right: 15px;
+    margin-left: 10px;
+}
+
+.edit-icon::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 4px;
+    background-color: var(--edit-icon-bg-color);
+    top: -6px;
+}
+
+.edit-icon::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 4px;
+    background-color: var(--edit-icon-bg-color);
+    left: 1px;
+    bottom: -2px;
+    transform: rotate(45deg);
+}

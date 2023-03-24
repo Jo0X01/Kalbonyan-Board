@@ -166,7 +166,7 @@ footer ul {
     width: 20%;
 }
 
-footer ul li img {
+footer ul li svg {
     transition-duration: 1s;
 }
 
@@ -174,10 +174,12 @@ footer ul li {
     margin: 0 5%;
 }
 
-footer li:hover img {
+footer li:hover svg {
     margin: 5px 20px;
 }
-
+footer li:hover svg path:nth-child(1) {
+    fill: #1d6cd6e3;
+}
 footer ul li a {
     width: 100%;
 }
@@ -189,7 +191,7 @@ footer ul li a {
         align-items: center;
     }
     footer {
-        bottom: -17%;
+        bottom: -10%;
         margin: 0 20%;
         padding: 15px 0;
     }

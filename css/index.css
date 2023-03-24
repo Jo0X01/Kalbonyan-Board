@@ -144,21 +144,8 @@ input::placeholder {
 }
 
 
-@media screen and (max-width: 767px) {
-    #main_body {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    #main_body {
-        flex-direction: row;
-    }
-}
 
 footer {
-
     position: absolute;
     padding: 25px 25px;
     bottom: 0;
@@ -193,4 +180,26 @@ footer li:hover img {
 
 footer ul li a {
     width: 100%;
+}
+
+
+@media screen and (max-width: 767px) {
+    #main_body {
+        flex-direction: column;
+        align-items: center;
+    }
+    footer {
+        bottom: -10%;
+        margin: 0 20%;
+        padding: 15px 0;
+    }
+    footer ul {
+        width: fit-content;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #main_body {
+        flex-direction: row;
+    }
 }

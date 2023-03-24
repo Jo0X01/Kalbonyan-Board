@@ -68,6 +68,7 @@ Drop = (ele) => {
     hideSeprator(ele);
 }
 addDragEvent = ele => {
+    drag = null;
     Helper.addEvent(ele, 'dragstart', () => dragStart(ele));
     Helper.addEvent(ele, 'dragend', () => dragEnd(ele));
     Helper.addEvent(ele, 'dragover', (event) => dragOver(event, ele));
@@ -128,11 +129,11 @@ Helper.iter(lists, (id, value) => {
         htmlID.replace("-list", "")
     );
     Helper.pushChildren(child, [
-         // h1 header - Not Started,etc... -
+        // h1 header - Not Started,etc... -
         Helper.cele("h1", "bh1", "", value),
-         // div that have element boxes
+        // div that have element boxes
         Helper.cele("div", options["listBox"], htmlID),
-         // add button that add new elements
+        // add button that add new elements
         Helper.cele("button", "", id, "+ Add"),
     ]);
     // append all to the main body
@@ -148,16 +149,19 @@ Helper.iter(ids, (key, value) =>
         true
     )
 );
+
+
 // update values from localStorage
 Helper.iter(
     Storage.getAllStorage(),
     (key, value) => {
-        try {
-            // add new Input Box
-            addTask(key, value);
-        } catch (e) {
-            // if error happen remove that input box
-            Storage.removeStorage(key);
-        }
+        // try {
+        // add new Input Box
+        addTask(key, value);
+        // } catch (e) {
+        //     // if error happen remove that input box
+        //     Storage.removeStorage(key);
+        // }
     }
 );
+

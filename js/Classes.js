@@ -45,7 +45,10 @@ class Helper {
     };
     // Generate a unique ID string
     static getUniqID = () =>
-        Date.now().toString(36) + Math.random().toString(36).substr(2);
+        Date.now().toString(36) +
+        Math.random().toString(36).substr(2) +
+        Math.random().toString(36).substr(2) +
+        Math.random().toString(36).substr(2) 
 
     // Append Children to Parent Element
     static pushChildren = (parent, children) => {
@@ -70,12 +73,15 @@ class Storage {
     static getAllStorage = () => Helper.toIterator(window.localStorage)
     // Swap the value of an old key with a new key
     static swapDataStorag = (oldKey, newKey) => {
-        Storage.saveToStorage(
-            newKey,
-            Storage.getFromStorage(oldKey)
-        )// save the value with the new key
-        if (oldKey !== newKey)
-            Storage.removeStorage(oldKey); // remove the old key
+        let keys = Storage.getAllStorage()
+        Storage.clear()
+        for (let i = 0; i < keys.length; i++) {
+            let key = keys[i][0]
+            let value = keys[i][1]
+            if (oldKey === key)
+                key = newKey
+            Storage.saveToStorage(key, value)
+        }
         Helper.log('swp', oldKey, newKey); // log the swap operation
     }
     // Remove a value from local storage with a given ID
@@ -84,7 +90,7 @@ class Storage {
         Helper.log('rm', id); // log the removal operation
     }
     // Remove all values from local storage
-    static removeAllStorage = () => {
+    static clear = () => {
         window.localStorage.clear();
         Helper.log("Storage Cleared"); // log the clear operation
     }

@@ -73,8 +73,9 @@ class Storage {
         Storage.saveToStorage(
             newKey,
             Storage.getFromStorage(oldKey)
-        ); // save the value with the new key
-        Storage.removeStorage(oldKey); // remove the old key
+        )// save the value with the new key
+        if (oldKey !== newKey)
+            Storage.removeStorage(oldKey); // remove the old key
         Helper.log('swp', oldKey, newKey); // log the swap operation
     }
     // Remove a value from local storage with a given ID
